@@ -6,16 +6,14 @@ import { loadingStatus } from './common'
 
 const fetchSuccess = createAction(FETCH_BOOK.SUCCESS)
 //const fetchSuccess = createAction(FETCH_BOOK.SUCCESS,data=>data)
-/*const fetchSuccess = (data='default data') => {
-    return {
+/* fetchSuccess(data)相当于是一个ActionCreator，返回
+    {
         type: FETCH_BOOK.SUCCESS,
-        payload: function(data){
-            return data
-        }   //redux-thunk就是使dispatch可以接受函数作为参数的中间件
+        payload: data
     }
 }*/
 
-
+// ActionCreator redux-thunk就是使dispatch可以接受函数作为参数的中间件，而这里的dispatch已经mapDispatch2Props
 export const fetchData = (id) => (dispatch) => {
     dispatch(loadingStatus(true));
     return fetch(`${API.FETCH_BOOK_BY_ID}/${id}`)

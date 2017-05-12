@@ -12,7 +12,6 @@ class bookView extends Component {
   componentWillMount() {
     const { fetchData, params } = this.props;
     fetchData(params.id);
-    console.log(this.props.data)
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.data !== this.props.data) {
@@ -20,17 +19,7 @@ class bookView extends Component {
       this.setState({ data });
     }
   }
- /* renderMeta() {
-    const { data } = this.props;
-    let cast = data.casts.reduce((name, value) => {
-      return name ? name + ' / ' + value.name : value.name;
-    }, '');
-    return (
-      <div>
-        {data.countries.join(' / ') + ' / ' + data.genres.join(' / ') + ' / ' + data.directors[0].name + '(导演) / ' + cast}
-      </div>
-    );
-  }*/
+
   renderBookSubject() {
     const { data } = this.state;
     return (
